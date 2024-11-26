@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RT-DETR Object Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>RT-DETR Object Detection</h1>
+        
+        <div class="controls">
+            <button id="startCamera">Start Camera</button>
+            <button id="stopCamera" disabled>Stop Camera</button>
+            <button id="captureImage">Capture Image</button>
+            <input type="file" id="imageUpload" accept="image/*">
+            <label for="imageUpload" class="upload-btn">Upload Image</label>
+            <div class="toggle-container">
+                <label>
+                    Real-time Detection
+                    <input type="checkbox" id="realTimeToggle" disabled>
+                </label>
+            </div>
+        </div>
+
+        <div class="video-container">
+            <video id="video" autoplay playsinline></video>
+            <canvas id="canvas" style="display: none;"></canvas>
+            <img id="resultImage" style="display: none;">
+        </div>
+
+        <div class="status">
+            <p id="statusText"></p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
